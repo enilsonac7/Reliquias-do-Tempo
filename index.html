@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relíquias do Tempo - Loja de Relógios</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="cart-overlay" onclick="toggleCart()"></div>
+   <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Sua Seleção</h3>
+            <button onclick="toggleCart()" class="close-cart">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items-container">
+            </div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: <span id="cart-total-value">R$ 0,00</span></div>
+            <button class="btn-checkout" onclick="checkoutWhatsApp()">Finalizar no WhatsApp</button>
+        </div>
+    </div>
+
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="gear"></div>
+            <p>Sincronizando Relíquias...</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">RELIQUIAS DO TEMPO</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#vitrine">Loja</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleCart()" class="cart-link">
+                        🛒 Carrinho (<span id="cart-count">0</span>)
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Relíquias do Tempo</h1>
+                <p>A história contada através de engrenagens e sofisticação.</p>
+                <button class="btn-catalog" onclick="document.getElementById('vitrine').scrollIntoView({behavior: 'smooth'})">
+                    Explorar Coleção
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="story-section" id="sobre">
+        <div class="story-container">
+            <div class="story-text" >
+                <h2>Cada Engrenagem, Uma História</h2>
+                <p>
+                    Na <strong>@ReliquiasDoTempo</strong>, não vendemos apenas relógios; preservamos fragmentos da história. 
+                    Cada peça em nosso acervo foi caçada individualmente, passando por uma curadoria rigorosa que avalia 
+                    não apenas a mecânica, mas a alma do objeto.
+                </p>
+                <p>
+                    Desde os clássicos <em>Omega</em> que cruzaram oceanos até os relógios de bolso que testemunharam o 
+                    nascimento de eras, nosso compromisso é conectar você ao legado da alta relojoaria vintage.
+                </p>
+                <div class="signature">Caçador de Relíquias</div>
+            </div>
+            <div class="story-badge">
+                <img src="https://img.icons8.com/ios/100/daa520/guarantee.png" alt="Selo de Autenticidade">
+                <span>Curadoria Exclusiva</span>
+            </div>
+        </div>
+    </section>
+
+     <section class="catalog" id="vitrine">
+        <h2>Ver Catálogo</h2>
+        <div class="product-grid" id="product-grid">
+            </div>
+    </section>
+</main>
+
+<div class="whatsapp-float">
+    <p>Preparando pedido do <strong>Omega Constellation Ouro...</strong></p>
+    <button onclick="sendWhatsApp()">Comprar no WhatsApp</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+<footer id="contato">
+<div class="footer-content">
+    <div class="footer-brand">
+        <div class="logo">RELIQUIAS DO TEMPO</div>
+        <p>Especialistas em alta relojoaria vintage e peças de coleção com história.</p>
+    </div>
+
+    <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#vitrine">Catálogo</a></li>
+            <li><a href="#">Sobre a Curadoria</a></li>
+            <li><a href="#">Termos e Garantia</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-social">
+        <h4>Siga a Nossa Jornada</h4>
+        <div class="social-icons">
+            <a href="https://www.tiktok.com/@ReliquiasDoTempo" target="_blank" class="social-btn tiktok">
+                <span>TikTok</span>
+            </a>
+            <a href="https://www.instagram.com/ReliquiasDoTempo" target="_blank" class="social-btn instagram">
+                <span>Instagram</span>
+            </a>
+        </div>
+        <p class="handle">@ReliquiasDoTempo</p>
+        </div>
+
+<div class="footer-bottom">
+    <p>&copy; 2026 Relíquias do Tempo - Caçador de Relíquias. Todos os direitos reservados.</p>
+</div>
+</footer>
+
+<li>
+    <a href="javascript:void(0)" onclick="toggleCart()" class="cart-icon-container">
+        Carrinho (<span id="cart-count">0</span>)
+    </a>
+</li>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

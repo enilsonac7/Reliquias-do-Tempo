@@ -1,0 +1,735 @@
+@media (max-width: 768px) {
+    .catalog {
+        padding: 50px 5%; /* No celular, usamos mais espaço da tela */
+    }
+    
+    .product-grid {
+        gap: 20px;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    background-color: #0a0a0a;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Estilo do Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Garante que fique acima de tudo */
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+/* A Engrenagem Dourada */
+.gear {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #333;
+    border-top: 6px solid #DAA520; /* Parte dourada */
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#preloader p {
+    color: #DAA520;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* Classe para sumir com o preloader */
+.loader-finish {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Animação do Brilho */
+@keyframes goldShimmer {
+    0% { background-position: -200%; }
+    100% { background-position: 200%; }
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(90deg, #DAA520, #fff, #DAA520);
+    background-size: 200% auto;
+    
+    /* Importante: a ordem e as variações para compatibilidade */
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    
+    /* Preenchimento transparente para mostrar o gradiente */
+    color: transparent; /* Fallback para navegadores antigos */
+    -webkit-text-fill-color: transparent; 
+    
+    animation: goldShimmer 4s linear infinite;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Definição das Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Aplicando ao Hero (Banner) */
+.hero-content {
+    opacity: 0; /* Começa invisível */
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 0.5s; /* Espera meio segundo para começar */
+}
+
+/* Aplicando aos Cards de Produtos */
+.product-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Delay individual para cada relógio aparecer um após o outro */
+.product-card:nth-child(1) { animation-delay: 0.8s; }
+.product-card:nth-child(2) { animation-delay: 1.0s; }
+.product-card:nth-child(3) { animation-delay: 1.2s; }
+.product-card:nth-child(4) { animation-delay: 1.4s; }
+
+/* Efeito de Hover (Passar o mouse) nos relógios */
+.product-card {
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+    border-color: #DAA520;
+    box-shadow: 0 10px 20px rgba(218, 165, 32, 0.2);
+}
+
+header {
+    background-color: #000;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo {
+    font-family: 'Serif';
+    font-size: 24px;
+    color: #DAA520;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+nav a:hover {
+    color: #DAA520;
+    opacity: 1;
+}
+
+
+/* Seção Principal (Hero) */
+/* Seção Principal (Hero) com a nova imagem */
+.hero {
+    width: 100%;
+    height: 85vh; 
+    /* Substitua pelo link ou caminho da sua imagem */
+    background-image: url('./img/logo-superior.png'); 
+    background-size: cover;
+    background-position: center 20%; /* Ajusta para mostrar mais o topo da imagem se necessário */
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #DAA520; /* Linha sutil separando o banner da loja */
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5); /* Escurece a imagem para o brilho do título saltar aos olhos */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: #DAA520; /* Dourado para o título */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+}
+
+/* Camada escura para dar leitura ao texto (opcional, se a foto for clara) */
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.4); /* Escurece levemente a imagem */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    color: #fff;
+    font-family: 'Playfair Display', serif; /* Fonte elegante para relíquias */
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+/* Botão Dourado Estilizado */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-catalog {
+    background-color: #DAA520;
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+}
+
+.btn-catalog:hover {
+    background-color: #fff; /* Muda para branco ou um dourado mais claro */
+    transform: translateY(-3px); /* Sobe levemente */
+    box-shadow: 0 6px 20px rgba(218, 165, 32, 0.6);
+}
+
+.btn-catalog:active {
+    transform: translateY(0); /* Efeito de clique */
+}
+
+/* Seção Geral do Catálogo */
+.catalog {
+    padding: 80px 15%; /* Aumentamos o recuo lateral para 15% para centralizar mais */
+    max-width: 1400px;  /* Limita a largura em telas muito grandes */
+    margin: 0 auto;     /* Centraliza o bloco inteiro na tela */
+    text-align: center;
+}
+
+.catalog h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #DAA520;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Linha decorativa abaixo do título para dar destaque */
+.catalog h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #DAA520;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Ajuste na Grid para centralização dos cards */
+.product-grid {
+    display: grid;
+    /* Define colunas que se ajustam sozinhas e centralizam o conteúdo */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 40px; /* Espaço maior entre os relógios */
+    justify-content: center; /* Centraliza os itens se sobrarem espaços */
+    margin-top: 50px;
+}
+
+.product-card {
+    background: #151515;
+    padding: 30px; /* Mais preenchimento interno */
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Garante que tudo dentro do card esteja no centro */
+    justify-content: space-between;
+    transition: all 0.4s ease;
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 220px; /* Evita que a imagem fique gigante e perca nitidez */
+    height: 220px;
+    object-fit: contain; /* Mantém a proporção do relógio sem cortar */
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); /* Sombra na foto do relógio */
+}
+
+.price {
+    color: #DAA520;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(26, 26, 26, 0.95); /* Leve transparência */
+    border: 1px solid #DAA520;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    z-index: 1000; /* Garante que fique acima de tudo, mas... */
+    max-width: 250px; /* Largura limitada para não cobrir o botão do produto */
+    text-align: center;
+    backdrop-filter: blur(5px); /* Efeito de vidro luxuoso */
+}
+
+.whatsapp-float p {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.whatsapp-float button {
+    background: #DAA520;
+    color: #000;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+    width: 100%; /* Botão ocupa a largura do card */
+    transition: 0.3s;
+}
+
+/* Evita que o card bloqueie cliques em telas muito pequenas */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+    }
+}
+.btn-select {
+    background-color: transparent;
+    color: #DAA520;
+    border: 1px solid #DAA520;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-select:hover {
+    background-color: #DAA520;
+    color: #000;
+}
+
+.story-section {
+    padding: 80px 10%;
+    background-color: #0f0f0f; /* Um tom levemente diferente do fundo principal */
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #1a1a1a;
+}
+
+.story-container {
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.story-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #DAA520;
+    margin-bottom: 20px;
+}
+
+.story-text p {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.signature {
+    font-family: 'Cursive', 'Brush Script MT', sans-serif; /* Fonte estilo assinatura */
+    color: #DAA520;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+.story-badge {
+    text-align: center;
+    border: 1px solid #DAA520;
+    padding: 30px;
+    border-radius: 50% 50% 0 0; /* Estilo medalhão */
+    min-width: 200px;
+}
+
+.story-badge img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.story-badge span {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #DAA520;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .story-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .story-text p {
+        text-align: center;
+    }
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 60px 10% 20px 10%;
+    border-top: 1px solid #DAA520; /* Linha dourada superior */
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 15px;
+    max-width: 300px;
+}
+
+.footer-links h4, .footer-social h4 {
+    color: #DAA520;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-links ul li a:hover {
+    color: #DAA520;
+    padding-left: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #DAA520;
+    color: #000;
+    border-color: #DAA520;
+}
+
+.handle {
+    font-weight: bold;
+    color: #DAA520;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .footer-content {
+        text-align: center;
+    }
+    .footer-brand p {
+        margin: 15px auto;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* Container da Vitrine */
+.catalog {
+    padding: 80px 10%;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.catalog h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #DAA520;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Grid Centralizada */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center; /* Centraliza o card na coluna */
+}
+
+/* O Card com Efeito de Moldura Relíquia */
+.product-card {
+    background: #111;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #222;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 320px;
+}
+
+/* Efeito de Moldura Dourada no Hover */
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: #DAA520;
+    box-shadow: 0 15px 35px rgba(218, 165, 32, 0.15);
+}
+
+/* Criando a "borda dupla" elegante no hover */
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid transparent;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.product-card:hover::before {
+    border: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Painel Lateral */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Escondido inicialmente */
+    width: 350px;
+    height: 100%;
+    background: #0f0f0f;
+    border-left: 1px solid #DAA520;
+    z-index: 10000;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+.cart-header h3 { color: #DAA520; font-family: 'Playfair Display', serif; }
+
+.close-cart { background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; }
+
+/* Lista de Itens */
+.cart-items-container { flex: 1; overflow-y: auto; padding: 20px 0; }
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    background: #1a1a1a;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.cart-item-info p { font-size: 0.9rem; margin: 0; }
+.cart-item-info span { color: #DAA520; font-size: 0.85rem; }
+
+.remove-item { background: none; border: none; color: #ff4d4d; cursor: pointer; font-size: 0.7rem; }
+
+/* Rodapé do Carrinho */
+.cart-total { margin: 20px 0; font-weight: bold; font-size: 1.1rem; text-align: right; }
+.btn-checkout {
+    background: #DAA520;
+    color: #000;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+
+/* Botão de fechar (X) */
+.close-cart {
+    background: none;
+    border: none;
+    color: #DAA520;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-cart:hover {
+    transform: rotate(90deg); /* Efeito visual ao passar o mouse */
+    color: #fff;
+}
+
+/* Fundo escuro atrás do carrinho */
+#cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px); /* Deixa o fundo levemente desfocado */
+    display: none;
+    z-index: 999;
+}
+
+#cart-overlay.active {
+    display: block;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 999; /* Um número abaixo do sidebar que deve ser 1000 */
+}
