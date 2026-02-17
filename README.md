@@ -1,6 +1,6 @@
 # 💎 Relíquias do Tempo - E-commerce de Relógios Vintage
 
-![Relíquias do Tempo - Desktop e Mobile Preview](https://github.com/enilsonac7/Reliquias-do-Tempo/commit/7d0483868ab1da22e36e425e184974dc35bb1008)
+![Relíquias do Tempo - Desktop e Mobile Preview](reliquias-do-tempo.png)
 
 ## 🕰️ Sobre o Projeto
 
