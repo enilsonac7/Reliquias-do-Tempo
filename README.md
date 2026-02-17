@@ -1,6 +1,6 @@
 # 💎 Relíquias do Tempo - E-commerce de Relógios Vintage
 
-![Relíquias do Tempo - Desktop e Mobile Preview](https://gemini.google.com/share/5a9ac847cb30)
+![Relíquias do Tempo - Desktop e Mobile Preview]()
 
 ## 🕰️ Sobre o Projeto
 
